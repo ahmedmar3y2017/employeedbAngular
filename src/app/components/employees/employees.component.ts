@@ -21,10 +21,8 @@ export class EmployeesComponent implements OnInit {
   totalSalEmp: number;
 
   constructor(private readonly db: AngularFirestore) {
+    this.itemsCollection = db.collection<Employee>('employees');
 
-
-
-    this.itemsCollection = db.collection<Employee>('employees', ref => ref.where('salary', '==', '200'));
 
     // this.items = this.itemsCollection.valueChanges();
     this.items = this.itemsCollection.snapshotChanges().pipe(

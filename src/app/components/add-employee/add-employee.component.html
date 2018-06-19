@@ -1,3 +1,161 @@
-<p>
-  add-employee works!
-</p>
+<style>
+  .container {
+
+    margin-top: 40px;
+  }
+
+  .row h3 {
+
+    margin-bottom: 40px;
+
+  }
+</style>
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm-8">
+      <h3>
+        <i class="fa fa-user-plus"></i> Add Employee</h3>
+
+
+      <form novalidate #fo="ngForm" (ngSubmit)="mySubmit(fo)">
+        <div class="form-group">
+          <label for="firstName">First Name : </label>
+          <input type="text" name="firstName" class="form-control" id="firstName" placeholder="Enter firstName" [(ngModel)]="employee.firstName"
+            #firstName="ngModel" required minlength="4">
+
+          <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="alert alert-danger">
+
+            <div *ngIf="firstName.errors.required">
+              firstName is required.
+            </div>
+            <div *ngIf="firstName.errors.minlength">
+              firstName must be at least 4 characters long.
+            </div>
+            <div *ngIf="firstName.errors.forbiddenName">
+              firstName cannot be Bob.
+            </div>
+
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <label for="lastName">Last Name : </label>
+          <input type="text" class="form-control" name="lastName" id="lastName" placeholder="Enter lastName" [(ngModel)]="employee.lastName"
+            #lastName="ngModel" required minlength="4">
+
+          <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="alert alert-danger">
+
+            <div *ngIf="lastName.errors.required">
+              lastName is required.
+            </div>
+            <div *ngIf="lastName.errors.minlength">
+              lastName must be at least 4 characters long.
+            </div>
+            <div *ngIf="lastName.errors.forbiddenName">
+              lastName cannot be Bob.
+            </div>
+
+          </div>
+        </div>
+
+
+
+        <div class="form-group">
+          <label for="email">Email : </label>
+          <input type="text" class="form-control" name="email" id="email" placeholder="Enter email" [(ngModel)]="employee.email" #email="ngModel"
+            required minlength="4">
+
+          <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+
+            <div *ngIf="email.errors.required">
+              email is required.
+            </div>
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <label for="country">Country : </label>
+          <input type="text" class="form-control" name="country" id="country" placeholder="Enter country" [(ngModel)]="employee.country"
+            #country="ngModel" required minlength="4">
+
+          <div *ngIf="country.invalid && (country.dirty || country.touched)" class="alert alert-danger">
+
+            <div *ngIf="country.errors.required">
+              country is required.
+            </div>
+            <div *ngIf="country.errors.minlength">
+              country must be at least 4 characters long.
+            </div>
+
+          </div>
+        </div>
+
+
+
+        <div class="form-group">
+          <label for="city">City : </label>
+          <input type="text" class="form-control" name="city" id="city" placeholder="Enter city" [(ngModel)]="employee.city" #city="ngModel"
+            required minlength="4">
+
+          <div *ngIf="city.invalid && (city.dirty || city.touched)" class="alert alert-danger">
+
+            <div *ngIf="city.errors.required">
+              city is required.
+            </div>
+            <div *ngIf="city.errors.minlength">
+              city must be at least 4 characters long.
+            </div>
+
+          </div>
+        </div>
+
+
+
+
+        <div class="form-group">
+          <label for="phone">Phone : </label>
+          <input type="text" class="form-control" name="phone" id="phone" placeholder="Enter phone" [(ngModel)]="employee.phone" #phone="ngModel"
+            required minlength="12">
+
+          <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="alert alert-danger">
+
+            <div *ngIf="phone.errors.required">
+              phone is required.
+            </div>
+            <div *ngIf="phone.errors.minlength">
+              phone must be at least 12 characters long.
+            </div>
+
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="salary">Salary : </label>
+          <input type="text" class="form-control" name="salary" id="salary" placeholder="Enter salary" [(ngModel)]="employee.salary"
+            #salary="ngModel" [disabled]="disabled">
+
+
+        </div>
+
+
+        <button type="submit" class="btn btn-success">Submit</button>
+
+      </form>
+
+    </div>
+    <div class="col-sm-4">
+
+      <a href="#" class="btn btn-primary" routerLink="/">Back to Home
+        <i class="fa fa-1x fa-backward"></i>
+      </a>
+
+    </div>
+
+
+
+  </div>
+</div>
