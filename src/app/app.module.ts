@@ -34,6 +34,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth'; import { environment 
 import { EmployeesComponent } from './components/employees/employees.component';
 import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { EditEmployeeComponent } from './components/edit-employee/edit-employee.component';
 
 
 
@@ -43,8 +44,11 @@ const appRoutes: Routes = [
   { path: "", component: DashboardComponent },
   { path: "register", component: RegisterComponent },
   { path: "add-emp", component: AddEmployeeComponent },
+  { path: "edit-emp/:id", component: EditEmployeeComponent },
+
   { path: "employee/:id", component: EmployeeInfoComponent },
-  { path: "login", component: LoginComponent }
+  { path: "login", component: LoginComponent },
+  { path: '**', component: PageNotFoundComponent }
 
 ];
 
@@ -52,7 +56,7 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-
+    EditEmployeeComponent,
     LoginComponent,
     RegisterComponent,
     NavbarComponent,

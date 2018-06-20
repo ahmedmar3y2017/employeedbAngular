@@ -71,4 +71,8 @@ export class EmployeesComponent implements OnInit {
     this.itemsCollection.doc(id).set(emp);
   }
 
+  // deleteItem(user) {
+  //   this.userDoc = this._afs.doc(`Users/${user.id}`);
+  //   this.userDoc.delete();
+  // }
 }

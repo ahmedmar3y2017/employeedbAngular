@@ -10,15 +10,18 @@ import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/fires
   styleUrls: ['./add-employee.component.css']
 })
 export class AddEmployeeComponent implements OnInit {
-  employee: Employee = {
+  employee: Employee= {
+    id: "",
     firstName: "",
     lastName: "",
     email: "",
     country: "",
     city: "",
     phone: 0,
-    salary: 0,
-  }
+    salary: 0
+
+  };
+
   private itemsCollection: AngularFirestoreCollection<Employee>;
 
   constructor(public flushMessages: FlashMessagesService, public router: Router, private db: AngularFirestore) {
