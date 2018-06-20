@@ -54,24 +54,9 @@ export class EmployeeInfoComponent implements OnInit {
   // get by Id
   getById(id) {
 
-    this.itemsCollection.doc(id).ref.get().then(function (doc) {
-      if (doc.exists) {
-        console.log("Document data:", doc.data().firstName);
+    this.itemsCollection.doc(id).valueChanges().subscribe(emp => {
 
-        this.employee = {
-          firstName: doc.data().firstName,
-          lastName: doc.data().lastName,
-          country: doc.data().country,
-          email: doc.data().email,
-          city: doc.data().city,
-          phone: doc.data().phone,
-          salary: doc.data().salary,
-        };
-      } else {
-        console.log("No such document!");
-      }
-    }).catch(function (error) {
-      console.log("Error getting document:", error);
+      this.employee = emp;
     });
   }
 
@@ -81,7 +66,7 @@ export class EmployeeInfoComponent implements OnInit {
 
       console.log("Done Delete ");
       this.db.doc('employees/' + id).delete();
-      this.flushMessages.show('Success Delete Employee ', { cssClass: 'alert-danger', timeout: 3000 });
+      this.flushMessages.show('Success Delete Employee ', { cssClass: 'alert-success', timeout: 3000 });
       this.router.navigate(['/']);
 
     }
