@@ -10,6 +10,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { EmployeeInfoComponent } from './components/employee-info/employee-info.component';
 
 
 
@@ -33,7 +34,6 @@ import { AngularFireAuthModule } from 'angularfire2/auth'; import { environment 
 import { EmployeesComponent } from './components/employees/employees.component';
 import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { EmployeeInfoComponent } from './components/employee-info/employee-info.component';
 
 
 
@@ -59,7 +59,7 @@ const appRoutes: Routes = [
     DashboardComponent,
     SettingsComponent,
     PageNotFoundComponent,
-    EmployeesComponent, SidebarComponent, AddEmployeeComponent
+    EmployeesComponent, SidebarComponent, AddEmployeeComponent, EmployeeInfoComponent
   ],
   imports: [
     BrowserModule
