@@ -12,7 +12,6 @@ import { Observable } from 'rxjs';
 })
 export class EditEmployeeComponent implements OnInit {
   private itemsCollection: AngularFirestoreCollection<Employee>;
-  // items: Observable<Employee[]>;
   id: string;
   employee: Employee = {
 
@@ -38,6 +37,9 @@ export class EditEmployeeComponent implements OnInit {
     this.itemsCollection = db.collection<Employee>('employees');
 
     this.getById(this.id);
+
+    console.log("This : ", this.employee);
+
   }
 
   ngOnInit() {
@@ -48,9 +50,10 @@ export class EditEmployeeComponent implements OnInit {
     this.itemsCollection.doc(id).valueChanges().subscribe(emp => {
 
       this.employee = emp;
+      console.log("This : ", this.employee);
+
     });
 
-    console.log(this.employee);
 
 
     // ref.get().then(function (doc) {

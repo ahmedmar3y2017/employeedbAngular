@@ -11,7 +11,6 @@ import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/fires
 })
 export class AddEmployeeComponent implements OnInit {
   employee: Employee= {
-    id: "",
     firstName: "",
     lastName: "",
     email: "",
